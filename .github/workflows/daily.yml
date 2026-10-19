@@ -28,3 +28,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+
+      - name: Trigger web deploy
+        if: success()
+        run: curl -fsS -X POST "${{ secrets.CF_DEPLOY_HOOK }}"

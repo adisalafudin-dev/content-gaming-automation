@@ -46,7 +46,7 @@ def send_threads():
         tweets = [t.strip() for t in row["content"].split("\n\n") if t.strip()]
         for t in tweets:
             send(t)   # satu pesan per tweet, tinggal salin-tempel
-        send(f"🔗 Link untuk dipasang di tweet terakhir:\n{article_url(art)}")
+        send(f"🔗 Baca selengkapnya:\n{article_url(art)}")
         sb.table("threads").update({"status": "sent"}).eq("id", row["id"]).execute()
         print(f"✅ Thread terkirim: {art['title']}")
     return len(rows)

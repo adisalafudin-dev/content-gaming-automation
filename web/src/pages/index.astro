@@ -1,0 +1,39 @@
+---
+import Base from "../layouts/BaseLayout.astro";
+import { getArticles } from "../lib/supabase";
+import { formatDate, excerpt } from "../utils/format";
+
+const articles = await getArticles(50);
+---
+
+<Base
+  title="Berita Gaming Terbaru"
+  description="Kabar terbaru dunia game, dirangkum setiap pagi."
+>
+  <h1>Berita Gaming Terbaru</h1>
+
+  {
+    articles.length === 0 ? (
+      <p>Belum ada artikel.</p>
+    ) : (
+      <ul class="article-list">
+        {articles.map((a) => (
+          <li>
+            <article>
+              <h2>
+                <a href={`/artikel/${a.slug}/`}>{a.title}</a>
+              </h2>
+              <p>{excerpt(a.content_html)}</p>
+              <small>
+                <time datetime={a.published_at}>
+                  {formatDate(a.published_at)}
+                </time>
+                {a.source_name && <> · {a.source_name}</>}
+              </small>
+            </article>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</Base>

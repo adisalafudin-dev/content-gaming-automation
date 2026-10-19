@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { CONTACT_EMAIL, SITE_DESC, SITE_NAME, SITE_OPERATOR } from "../config";
+---
+
+<BaseLayout
+  title="Tentang"
+  description={SITE_DESC}
+  canonical="/tentang"
+>
+  <article class="prose-article info-page">
+    <header class="page-heading">
+      <p class="page-kicker">Tentang kami</p>
+      <h1>Tentang {SITE_NAME}</h1>
+      <p class="page-lead">{SITE_DESC}</p>
+    </header>
+
+    <h2>Ruang lingkup</h2>
+    <p>{SITE_NAME} memuat kabar seputar game, esports, dan perkembangan industri gaming. Tujuannya memberi pembaca ringkasan berita dalam bahasa Indonesia, dengan tautan menuju sumber yang menjadi rujukan.</p>
+
+    <h2>Proses penyusunan</h2>
+    <p>Artikel disusun dengan bantuan AI dari bahan berita yang dirujuk. Ringkasan di situs ini bukan pengganti laporan sumber asli. Setiap artikel mencantumkan tautan sumber agar pembaca dapat memeriksa konteks dan informasi selengkapnya.</p>
+
+    <h2>Pengelola</h2>
+    <p>Pengelola situs: <strong>{SITE_OPERATOR}</strong>. Untuk pertanyaan mengenai pengelolaan situs, hubungi kami melalui email.</p>
+
+    <h2>Koreksi dan masukan</h2>
+    <p>Jika menemukan kekeliruan atau ingin menyampaikan masukan, silakan hubungi <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+  </article>
+</BaseLayout>

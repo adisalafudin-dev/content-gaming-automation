@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { CONTACT_EMAIL, SITE_NAME } from "../config";
+---
+
+<BaseLayout
+  title="Kontak"
+  description={`Hubungi ${SITE_NAME} untuk koreksi, pertanyaan, atau masukan.`}
+  canonical="/kontak"
+>
+  <article class="prose-article info-page contact-page">
+    <header class="page-heading">
+      <p class="page-kicker">Hubungi kami</p>
+      <h1>Kontak</h1>
+      <p class="page-lead">Untuk koreksi berita, pertanyaan, atau masukan mengenai situs, kirimkan email kepada kami.</p>
+    </header>
+
+    <div class="contact-card">
+      <p class="contact-label">Email</p>
+      <a class="contact-email" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+      <p class="contact-note">Sertakan tautan artikel dan penjelasan singkat agar pesan Anda dapat ditindaklanjuti.</p>
+    </div>
+  </article>
+</BaseLayout>

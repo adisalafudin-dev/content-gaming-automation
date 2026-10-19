@@ -1,0 +1,38 @@
+---
+import Base from "../../layouts/BaseLayout.astro";
+import { getAllArticles } from "../../lib/supabase";
+import { formatDate, excerpt, readingTime } from "../../utils/format";
+import { cleanHtml } from "../../utils/sanitize";
+
+export async function getStaticPaths() {
+  const articles = await getAllArticles();
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const html = cleanHtml(article.content_html);
+---
+
+<Base title={article.title} description={excerpt(article.content_html, 155)}>
+  <article>
+    <h1>{article.title}</h1>
+    <p>
+      <time datetime={article.published_at}
+        >{formatDate(article.published_at)}</time
+      >
+      · {readingTime(article.content_html)} menit baca
+    </p>
+
+    <div class="prose-article" set:html={html} />
+
+    <aside class="source-box">
+      Sumber berita:
+      <a href={article.source_link} rel="noopener nofollow" target="_blank">
+        {article.source_name ?? "Sumber asli"}
+      </a>
+    </aside>
+  </article>
+</Base>

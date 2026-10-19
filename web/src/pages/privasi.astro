@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { CONTACT_EMAIL, SITE_NAME } from "../config";
+---
+
+<BaseLayout
+  title="Kebijakan Privasi"
+  description={`Informasi tentang data, penyimpanan lokal, dan layanan pihak ketiga di ${SITE_NAME}.`}
+  canonical="/privasi"
+>
+  <article class="prose-article info-page">
+    <header class="page-heading">
+      <p class="page-kicker">Informasi situs</p>
+      <h1>Kebijakan Privasi</h1>
+      <p class="page-lead">Kebijakan ini menjelaskan data yang diproses saat Anda menggunakan {SITE_NAME} serta pilihan yang tersedia bagi Anda.</p>
+    </header>
+
+    <p class="policy-updated"><strong>Terakhir diperbarui:</strong> [Isi tanggal pembaruan]</p>
+
+    <h2>Data yang kami terima</h2>
+    <p>Saat ini, situs tidak menyediakan akun pengguna, kolom komentar, atau formulir pendaftaran. Jika Anda menghubungi kami melalui email, kami akan menerima alamat email dan informasi yang Anda sertakan untuk menanggapi pesan tersebut.</p>
+    <p>Situs ini dihosting menggunakan Cloudflare Pages. Dalam menyediakan layanannya, Cloudflare dapat memproses data teknis seperti alamat IP dan informasi lalu lintas situs. Baca <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Kebijakan Privasi Cloudflare</a> untuk rinciannya.</p>
+
+    <h2>Cookie dan penyimpanan lokal</h2>
+    <p>Pengaturan tema disimpan di penyimpanan lokal peramban (localStorage), sehingga pilihan tampilan Anda tetap tersimpan saat kembali berkunjung. Fitur ini tidak digunakan untuk mengenali Anda di situs lain.</p>
+    <p>Saat ini, situs belum menggunakan layanan analitik pihak ketiga. Jika layanan tersebut ditambahkan, kebijakan ini akan memuat nama penyedia, data yang diproses, tujuannya, serta tautan ke pengaturan privasi penyedia.</p>
+
+    <h2>Iklan pihak ketiga</h2>
+    <p>Iklan pihak ketiga belum ditayangkan. Jika Google AdSense diaktifkan, Google dapat menggunakan cookie untuk menayangkan dan mengukur iklan, termasuk iklan yang dipersonalisasi. Pelajari <a href="https://support.google.com/adsense/answer/7549925?hl=id" target="_blank" rel="noopener noreferrer">cara AdSense menggunakan cookie</a> dan atur personalisasi melalui <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">Setelan Iklan Google</a>. Kebijakan ini perlu diperbarui jika penyedia atau pengaturan iklan berubah.</p>
+
+    <h2>Tautan ke situs lain</h2>
+    <p>Artikel dapat memuat tautan ke situs sumber dan layanan lain. Kebijakan privasi situs tersebut dikelola oleh masing-masing penyedia, sehingga kami menyarankan Anda membacanya saat membuka tautan.</p>
+
+    <h2>Kontak</h2>
+    <p>Untuk pertanyaan mengenai kebijakan ini atau penggunaan data, hubungi <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+  </article>
+</BaseLayout>
